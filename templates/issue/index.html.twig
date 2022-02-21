@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des tickets{% endblock %}
+
+{% block body %}
+    <style>
+    </style>
+
+    <div class="container">
+        <h1 class="p-3 text-center">Liste des tickets</h1>
+
+
+        <div class="d-flex justify-content-center">
+            <a href="/new_issue" class="btn btn-success">Cliquez ici pour ajouter un ticket</a>
+        </div>
+        <div class="p-3">
+            <table class="table  align-middle">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Priorité</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%  for issue in issues %}
+                    <tr>
+                        <th scope="row">{{ issue.id }}</th>
+                        <td>{{ issue.priority|e }}</td>
+                        <td>{{ issue.title|e }}</td>
+                        <td>{{ issue.author.firstName|e }}</td>
+                        <td>{{ issue.status|e }}</td>
+                        <td>
+                            <a href="{{ path('issue_edit', {id: issue.id}) }}" class="btn btn-primary btn-sm">Ouvrir/Modifier</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
