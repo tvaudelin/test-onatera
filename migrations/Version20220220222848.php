@@ -40,7 +40,7 @@ final class Version20220220222848 extends AbstractMigration
             VALUES (
                 3,
                 \'critical\',
-                \'fixed\',
+                \'resolved\',
                 \'Mon PC ne marche plus\',
                 \'Je ne comprends pas, mon ordinateur portable ne fonctionne plus : quoi que je fasse mon écran reste totalement noir...\'
             )
